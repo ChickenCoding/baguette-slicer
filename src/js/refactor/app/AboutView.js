@@ -6,8 +6,8 @@
  *  @submodule AboutView
  *  @requires Backbone, Microtemplate
  */
-var Backbone = require("../../../bower_components/exoskeleton/exoskeleton"),
-  Microtemplate = require("../../../bower_components/microtemplates/index");
+var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
+  Microtemplate = require("../../../../bower_components/microtemplates/index");
 
 /**
  *  About view

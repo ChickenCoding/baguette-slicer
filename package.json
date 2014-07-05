@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "preinstall": "bower install --save-dev exoskeleton microtemplates requirejs --allow-root",
-    "postinstall": "grunt && grunt test && grunt dev",
+    "postinstall": "grunt install",
     "test": "mocha-phantomjs /test/testRunner.html"
   },
   "repository": {
@@ -16,6 +16,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ChickenCoding/BaguetteSlicer/issues"
+  },
+  "config": {
+    "unsafe-perm": true
   },
   "homepage": "https://github.com/ChickenCoding/BaguetteSlicer",
   "devDependencies": {

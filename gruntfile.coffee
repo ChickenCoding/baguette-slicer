@@ -156,5 +156,17 @@ module.exports = (grunt) ->
   grunt.registerTask "dev", [
     "yuidoc:all"
   ]
+  
+  ###*
+  # Task for npm post-install
+  #
+  # @registeredTask install
+  ###
+  grunt.registerTask "install", [
+    "jslint:all"
+    "browserify:minimal"
+    "uglify:minimal"
+    "yuidoc:all"
+  ]
 
 
