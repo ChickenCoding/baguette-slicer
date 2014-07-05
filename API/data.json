@@ -1,0 +1,1191 @@
+{
+    "project": {},
+    "files": {
+        "src/js/minimal/app/AboutView.js": {
+            "name": "src/js/minimal/app/AboutView.js",
+            "modules": {
+                "AboutView": 1
+            },
+            "classes": {
+                "AboutView": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/js/minimal/app/AppModel.js": {
+            "name": "src/js/minimal/app/AppModel.js",
+            "modules": {
+                "AppModel": 1
+            },
+            "classes": {
+                "AppModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/js/minimal/app/AppView.js": {
+            "name": "src/js/minimal/app/AppView.js",
+            "modules": {
+                "AppView": 1
+            },
+            "classes": {
+                "AppView": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/js/minimal/baguette/BaguetteModel.js": {
+            "name": "src/js/minimal/baguette/BaguetteModel.js",
+            "modules": {
+                "BaguetteModel": 1
+            },
+            "classes": {
+                "BaguetteModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/js/minimal/baguette/BaguetteView.js": {
+            "name": "src/js/minimal/baguette/BaguetteView.js",
+            "modules": {
+                "BaguetteView": 1
+            },
+            "classes": {
+                "Baguetteview": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/js/minimal/factory/FactoryCollection.js": {
+            "name": "src/js/minimal/factory/FactoryCollection.js",
+            "modules": {
+                "FactoryCollection": 1
+            },
+            "classes": {
+                "FactoryCollection": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/js/minimal/factory/FactoryCollectionView.js": {
+            "name": "src/js/minimal/factory/FactoryCollectionView.js",
+            "modules": {
+                "FactoryCollectionView": 1
+            },
+            "classes": {
+                "FactoryCollectionView": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/js/minimal/factory/FactoryModel.js": {
+            "name": "src/js/minimal/factory/FactoryModel.js",
+            "modules": {
+                "Factorymodel": 1
+            },
+            "classes": {
+                "FactoryModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/js/minimal/app.js": {
+            "name": "src/js/minimal/app.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/js/minimal/router.js": {
+            "name": "src/js/minimal/router.js",
+            "modules": {
+                "Router": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "app": {
+            "name": "app",
+            "submodules": {
+                "AboutView": 1,
+                "AppModel": 1,
+                "AppView": 1
+            },
+            "classes": {
+                "AboutView": 1,
+                "AppModel": 1,
+                "AppView": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 32
+        },
+        "AboutView": {
+            "name": "AboutView",
+            "submodules": {},
+            "classes": {
+                "AboutView": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "app",
+            "namespace": "",
+            "file": "src/js/minimal/app/AboutView.js",
+            "line": 27,
+            "description": "About Controller\nSimple view to show description",
+            "requires": [
+                "Backbone",
+                "Microtemplate"
+            ]
+        },
+        "AppModel": {
+            "name": "AppModel",
+            "submodules": {},
+            "classes": {
+                "AppModel": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "app",
+            "namespace": "",
+            "file": "src/js/minimal/app/AppModel.js",
+            "line": 23,
+            "description": "Global application configuration",
+            "requires": [
+                "Backbone"
+            ]
+        },
+        "AppView": {
+            "name": "AppView",
+            "submodules": {},
+            "classes": {
+                "AppView": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "app",
+            "namespace": "",
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 32,
+            "description": "A view which works like a\ndispatcher",
+            "requires": [
+                "Backbone",
+                "Baguette",
+                "Factory"
+            ]
+        },
+        "baguette": {
+            "name": "baguette",
+            "submodules": {
+                "BaguetteModel": 1,
+                "BaguetteView": 1
+            },
+            "classes": {
+                "BaguetteModel": 1,
+                "Baguetteview": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 32
+        },
+        "BaguetteModel": {
+            "name": "BaguetteModel",
+            "submodules": {},
+            "classes": {
+                "BaguetteModel": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "baguette",
+            "namespace": "",
+            "file": "src/js/minimal/baguette/BaguetteModel.js",
+            "line": 25,
+            "description": "Baguette single item model",
+            "requires": [
+                "Backbone"
+            ]
+        },
+        "BaguetteView": {
+            "name": "BaguetteView",
+            "submodules": {},
+            "classes": {
+                "Baguetteview": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "baguette",
+            "namespace": "",
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 32,
+            "description": "Baguette view",
+            "requires": [
+                "Backbone",
+                "Microtemplates",
+                "BaguetteModel"
+            ]
+        },
+        "factory": {
+            "name": "factory",
+            "submodules": {
+                "FactoryCollection": 1,
+                "FactoryCollectionView": 1,
+                "Factorymodel": 1
+            },
+            "classes": {
+                "FactoryCollection": 1,
+                "FactoryCollectionView": 1,
+                "FactoryModel": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "file": "src/js/minimal/factory/FactoryModel.js",
+            "line": 23
+        },
+        "FactoryCollection": {
+            "name": "FactoryCollection",
+            "submodules": {},
+            "classes": {
+                "FactoryCollection": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "factory",
+            "namespace": "",
+            "file": "src/js/minimal/factory/FactoryCollection.js",
+            "line": 23,
+            "description": "Factory collection",
+            "requires": [
+                "Backbone",
+                "FactoryModel"
+            ]
+        },
+        "FactoryCollectionView": {
+            "name": "FactoryCollectionView",
+            "submodules": {},
+            "classes": {
+                "FactoryCollectionView": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "factory",
+            "namespace": "",
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 30,
+            "description": "Factory collection view",
+            "requires": [
+                "Backbone",
+                "FactoryCollection"
+            ]
+        },
+        "Factorymodel": {
+            "name": "Factorymodel",
+            "submodules": {},
+            "classes": {
+                "FactoryModel": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "factory",
+            "namespace": "",
+            "file": "src/js/minimal/factory/FactoryModel.js",
+            "line": 23,
+            "description": "Factory model",
+            "requires": [
+                "Backbone"
+            ]
+        },
+        "Router": {
+            "name": "Router",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/js/minimal/router.js",
+            "line": 1,
+            "description": "Set up the routes",
+            "requires": [
+                "Backbone",
+                "app/AppView"
+            ]
+        }
+    },
+    "classes": {
+        "AboutView": {
+            "name": "AboutView",
+            "shortname": "AboutView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "submodule": "AboutView",
+            "namespace": "",
+            "file": "src/js/minimal/app/AboutView.js",
+            "line": 27,
+            "description": "About view",
+            "is_constructor": 1
+        },
+        "AppModel": {
+            "name": "AppModel",
+            "shortname": "AppModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "submodule": "AppModel",
+            "namespace": "",
+            "file": "src/js/minimal/app/AppModel.js",
+            "line": 23,
+            "description": "Set App properties",
+            "extends": "Backbone",
+            "itemtype": "property",
+            "type": "Integer"
+        },
+        "AppView": {
+            "name": "AppView",
+            "shortname": "AppView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "submodule": "AppView",
+            "namespace": "",
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 32,
+            "description": "Dispatch the app",
+            "is_constructor": 1
+        },
+        "BaguetteModel": {
+            "name": "BaguetteModel",
+            "shortname": "BaguetteModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "baguette",
+            "submodule": "BaguetteModel",
+            "namespace": "",
+            "file": "src/js/minimal/baguette/BaguetteModel.js",
+            "line": 25,
+            "description": "Set Baguette properties",
+            "extends": "Backbone",
+            "itemtype": "property",
+            "type": "Integer"
+        },
+        "Baguetteview": {
+            "name": "Baguetteview",
+            "shortname": "Baguetteview",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "baguette",
+            "submodule": "BaguetteView",
+            "namespace": "",
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 32,
+            "description": "Manage Baguette",
+            "extends": "Backbone",
+            "is_constructor": 1
+        },
+        "FactoryCollection": {
+            "name": "FactoryCollection",
+            "shortname": "FactoryCollection",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "factory",
+            "submodule": "FactoryCollection",
+            "namespace": "",
+            "file": "src/js/minimal/factory/FactoryCollection.js",
+            "line": 23,
+            "description": "List of Factory",
+            "extends": "Backbone",
+            "is_constructor": 1
+        },
+        "FactoryCollectionView": {
+            "name": "FactoryCollectionView",
+            "shortname": "FactoryCollectionView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "factory",
+            "submodule": "FactoryCollectionView",
+            "namespace": "",
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 30,
+            "description": "Manage factory list",
+            "extends": "Backbone",
+            "is_constructor": 1
+        },
+        "FactoryModel": {
+            "name": "FactoryModel",
+            "shortname": "FactoryModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "factory",
+            "submodule": "Factorymodel",
+            "namespace": "",
+            "file": "src/js/minimal/factory/FactoryModel.js",
+            "line": 23,
+            "description": "Set Factory properties",
+            "extends": "Backbone",
+            "itemtype": "property",
+            "type": "String"
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/js/minimal/app/AboutView.js",
+            "line": 16,
+            "description": "Strict mode\nmore infos at :\nhttp://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/",
+            "itemtype": "property",
+            "name": "strict mode",
+            "type": "{String}",
+            "default": "\"use strict\"",
+            "class": "AboutView",
+            "module": "app",
+            "submodule": "AboutView"
+        },
+        {
+            "file": "src/js/minimal/app/AboutView.js",
+            "line": 35,
+            "description": "Set the view template",
+            "itemtype": "attribute",
+            "name": "template",
+            "extends": "Microtemplates",
+            "type": "Object",
+            "default": "DOM selector",
+            "class": "AboutView",
+            "module": "app",
+            "submodule": "AboutView"
+        },
+        {
+            "file": "src/js/minimal/app/AboutView.js",
+            "line": 45,
+            "description": "Bind template to element",
+            "itemtype": "attribute",
+            "name": "el",
+            "type": "String",
+            "default": "#baguette",
+            "class": "AboutView",
+            "module": "app",
+            "submodule": "AboutView"
+        },
+        {
+            "file": "src/js/minimal/app/AboutView.js",
+            "line": 54,
+            "description": "Initialize",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "AboutView",
+            "module": "app",
+            "submodule": "AboutView"
+        },
+        {
+            "file": "src/js/minimal/app/AboutView.js",
+            "line": 63,
+            "description": "Render the view",
+            "itemtype": "method",
+            "name": "render",
+            "class": "AboutView",
+            "module": "app",
+            "submodule": "AboutView"
+        },
+        {
+            "file": "src/js/minimal/app/AppModel.js",
+            "line": 12,
+            "description": "Strict mode\nmore infos at :\nhttp://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/",
+            "itemtype": "property",
+            "name": "strict mode",
+            "type": "{String}",
+            "default": "\"use strict\"",
+            "class": "AppModel",
+            "module": "app",
+            "submodule": "AppModel"
+        },
+        {
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 21,
+            "description": "Strict mode\nmore infos at :\nhttp://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/",
+            "itemtype": "property",
+            "name": "strict mode",
+            "type": "{String}",
+            "default": "\"use strict\"",
+            "class": "AppView",
+            "module": "app",
+            "submodule": "AppView"
+        },
+        {
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 40,
+            "description": "Constructor",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "AppView",
+            "module": "app",
+            "submodule": "AppView"
+        },
+        {
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 53,
+            "description": "Intialize the application loop",
+            "itemtype": "method",
+            "name": "render",
+            "class": "AppView",
+            "module": "app",
+            "submodule": "AppView"
+        },
+        {
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 60,
+            "description": "Scope trick",
+            "itemtype": "property",
+            "name": "self",
+            "class": "AppView",
+            "module": "app",
+            "submodule": "AppView"
+        },
+        {
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 68,
+            "description": "Application loop",
+            "itemtype": "method",
+            "name": "loop",
+            "class": "AppView",
+            "module": "app",
+            "submodule": "AppView"
+        },
+        {
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 74,
+            "description": "Get all the factories bps\nAdd the buy/sell observers",
+            "itemtype": "property",
+            "name": "current",
+            "type": "{String}",
+            "default": "0",
+            "class": "AppView",
+            "module": "app",
+            "submodule": "AppView"
+        },
+        {
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 85,
+            "description": "Once the buy/sell trades have been added\nreset to prevent re-adding it",
+            "itemtype": "property",
+            "name": "resetTrade",
+            "class": "AppView",
+            "module": "app",
+            "submodule": "AppView"
+        },
+        {
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 93,
+            "description": "If baguette per second is greater than 0\n  and there's factories to sell\nthen update the baguette amount\nelse stop the application",
+            "class": "AppView",
+            "module": "app",
+            "submodule": "AppView"
+        },
+        {
+            "file": "src/js/minimal/app/AppView.js",
+            "line": 116,
+            "description": "Stop the loop and the application",
+            "itemtype": "method",
+            "name": "stop",
+            "class": "AppView",
+            "module": "app",
+            "submodule": "AppView"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteModel.js",
+            "line": 14,
+            "description": "Strict mode\nmore infos at :\nhttp://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/",
+            "itemtype": "property",
+            "name": "strict mode",
+            "type": "{String}",
+            "default": "\"use strict\"",
+            "class": "BaguetteModel",
+            "module": "baguette",
+            "submodule": "BaguetteModel"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 21,
+            "description": "Strict mode\nmore infos at :\nhttp://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/",
+            "itemtype": "property",
+            "name": "strict mode",
+            "type": "{String}",
+            "default": "\"use strict\"",
+            "class": "Baguetteview",
+            "module": "baguette",
+            "submodule": "BaguetteView"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 41,
+            "description": "Link to the model",
+            "itemtype": "attribute",
+            "name": "model",
+            "extends": "Backbone.Model",
+            "type": "Object",
+            "default": "BaguetteModel",
+            "class": "Baguetteview",
+            "module": "baguette",
+            "submodule": "BaguetteView"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 51,
+            "description": "Set the view template",
+            "itemtype": "attribute",
+            "name": "template",
+            "extends": "Microtemplates",
+            "type": "Object",
+            "default": "DOM selector",
+            "class": "Baguetteview",
+            "module": "baguette",
+            "submodule": "BaguetteView"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 61,
+            "description": "Bind template to element",
+            "itemtype": "attribute",
+            "name": "el",
+            "type": "String",
+            "default": "#baguette",
+            "class": "Baguetteview",
+            "module": "baguette",
+            "submodule": "BaguetteView"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 70,
+            "description": "View event listener",
+            "itemtype": "attribute",
+            "name": "events",
+            "type": "Object",
+            "class": "Baguetteview",
+            "module": "baguette",
+            "submodule": "BaguetteView"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 77,
+            "description": "Bind add event to add() function",
+            "itemtype": "event",
+            "name": "click:add",
+            "class": "Baguetteview",
+            "module": "baguette",
+            "submodule": "BaguetteView"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 85,
+            "description": "Observe model changes",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "Baguetteview",
+            "module": "baguette",
+            "submodule": "BaguetteView"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 104,
+            "description": "Renders the view",
+            "itemtype": "method",
+            "name": "render",
+            "return": {
+                "description": "Object Baguette view properties"
+            },
+            "class": "Baguetteview",
+            "module": "baguette",
+            "submodule": "BaguetteView"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 115,
+            "description": "Add baguettes",
+            "itemtype": "method",
+            "name": "add",
+            "class": "Baguetteview",
+            "module": "baguette",
+            "submodule": "BaguetteView"
+        },
+        {
+            "file": "src/js/minimal/baguette/BaguetteView.js",
+            "line": 132,
+            "description": "Delete the view",
+            "itemtype": "method",
+            "name": "remove",
+            "class": "Baguetteview",
+            "module": "baguette",
+            "submodule": "BaguetteView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollection.js",
+            "line": 12,
+            "description": "Strict mode\nmore infos at :\nhttp://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/",
+            "itemtype": "property",
+            "name": "strict mode",
+            "type": "{String}",
+            "default": "\"use strict\"",
+            "class": "FactoryCollection",
+            "module": "factory",
+            "submodule": "FactoryCollection"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollection.js",
+            "line": 31,
+            "description": "Link to the model",
+            "itemtype": "attribute",
+            "name": "model",
+            "extends": "Backbone.Model",
+            "type": "Object",
+            "default": "BaguetteModel",
+            "class": "FactoryCollection",
+            "module": "factory",
+            "submodule": "FactoryCollection"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollection.js",
+            "line": 41,
+            "description": "Initialize the collection",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "FactoryCollection",
+            "module": "factory",
+            "submodule": "FactoryCollection"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollection.js",
+            "line": 48,
+            "description": "Get the baguette per second for all factories",
+            "itemtype": "property",
+            "name": "bps",
+            "type": "{Integer}",
+            "default": "0",
+            "class": "FactoryCollection",
+            "module": "factory",
+            "submodule": "FactoryCollection"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollection.js",
+            "line": 57,
+            "description": "Get a trace of the amount of a factory\nsold on the last time",
+            "itemtype": "property",
+            "name": "lastSell",
+            "type": "{Integer}",
+            "default": "0",
+            "class": "FactoryCollection",
+            "module": "factory",
+            "submodule": "FactoryCollection"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollection.js",
+            "line": 69,
+            "description": "Add bps from event\nAlso get a trace of the last sell",
+            "itemtype": "method",
+            "name": "addBps",
+            "params": [
+                {
+                    "name": "model",
+                    "description": "factoryModel",
+                    "type": "Object"
+                }
+            ],
+            "class": "FactoryCollection",
+            "module": "factory",
+            "submodule": "FactoryCollection"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollection.js",
+            "line": 86,
+            "description": "Baguette per second getter",
+            "itemtype": "method",
+            "name": "getBps",
+            "class": "FactoryCollection",
+            "module": "factory",
+            "submodule": "FactoryCollection"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollection.js",
+            "line": 96,
+            "description": "Get amount of factories currently owned",
+            "itemtype": "method",
+            "name": "getFactoriesOwned",
+            "return": {
+                "description": "total",
+                "type": "Integer"
+            },
+            "class": "FactoryCollection",
+            "module": "factory",
+            "submodule": "FactoryCollection"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 19,
+            "description": "Strict mode\nmore infos at :\nhttp://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/",
+            "itemtype": "property",
+            "name": "strict mode",
+            "type": "{String}",
+            "default": "\"use strict\"",
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 38,
+            "description": "Set the collection",
+            "itemtype": "attribute",
+            "name": "collection",
+            "extends": "Backbone",
+            "type": "Object",
+            "default": "Array",
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 49,
+            "description": "Set the view template",
+            "itemtype": "attribute",
+            "name": "template",
+            "extends": "Microtemplates",
+            "type": "Object",
+            "default": "DOM selector",
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 59,
+            "description": "Bind template to element",
+            "itemtype": "attribute",
+            "name": "el",
+            "type": "String",
+            "default": "#factories",
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 68,
+            "description": "Initialize the collection view",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 78,
+            "description": "Updates or not the app",
+            "itemtype": "property",
+            "name": "isLocked",
+            "default": "null",
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 87,
+            "description": "Render list of models",
+            "itemtype": "method",
+            "name": "render",
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 96,
+            "description": "Add a factory to the collection",
+            "itemtype": "method",
+            "name": "addOne",
+            "params": [
+                {
+                    "name": "factory",
+                    "description": "model",
+                    "type": "Object"
+                }
+            ],
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 109,
+            "description": "Display the actual bps, if not locked",
+            "itemtype": "method",
+            "name": "setBps",
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 122,
+            "description": "Get actual bps",
+            "itemtype": "method",
+            "name": "getBps",
+            "return": {
+                "description": "bps",
+                "type": "Integer"
+            },
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 132,
+            "description": "Stop the bps",
+            "itemtype": "method",
+            "name": "lockBps",
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 143,
+            "description": "Get the amount of last sell",
+            "itemtype": "method",
+            "name": "trade",
+            "return": {
+                "description": "last sell",
+                "type": "Integer"
+            },
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 154,
+            "description": "Reset the last sell",
+            "itemtype": "method",
+            "name": "resetTrade",
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryCollectionView.js",
+            "line": 164,
+            "description": "Get amount of factories owned",
+            "itemtype": "method",
+            "name": "getFactoriesOwned",
+            "return": {
+                "description": "amount",
+                "type": "Integer"
+            },
+            "class": "FactoryCollectionView",
+            "module": "factory",
+            "submodule": "FactoryCollectionView"
+        },
+        {
+            "file": "src/js/minimal/factory/FactoryModel.js",
+            "line": 12,
+            "description": "Strict mode\nmore infos at :\nhttp://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/",
+            "itemtype": "property",
+            "name": "strict mode",
+            "type": "{String}",
+            "default": "\"use strict\"",
+            "class": "FactoryModel",
+            "module": "factory",
+            "submodule": "Factorymodel"
+        },
+        {
+            "file": "src/js/minimal/app.js",
+            "line": 1,
+            "description": "Configure the requirejs library",
+            "itemtype": "attribute",
+            "name": "require",
+            "readonly": "",
+            "class": "",
+            "module": "factory"
+        },
+        {
+            "file": "src/js/minimal/app.js",
+            "line": 10,
+            "description": "Set vendors' path",
+            "itemtype": "property",
+            "name": "path",
+            "type": "String",
+            "class": "",
+            "module": "factory"
+        },
+        {
+            "file": "src/js/minimal/app.js",
+            "line": 21,
+            "description": "Bind a vendor to a shortcut\nAlso define dependencies, if any",
+            "itemtype": "property",
+            "name": "shim",
+            "type": "String",
+            "class": "",
+            "module": "factory"
+        },
+        {
+            "file": "src/js/minimal/app.js",
+            "line": 38,
+            "description": "Since we do not use jquery\nUse this trick",
+            "access": "private",
+            "tagname": "",
+            "class": "",
+            "module": "factory"
+        },
+        {
+            "file": "src/js/minimal/app.js",
+            "line": 50,
+            "description": "Since we do not use underscore\nUse this trick",
+            "access": "private",
+            "tagname": "",
+            "class": "",
+            "module": "factory"
+        },
+        {
+            "file": "src/js/minimal/app.js",
+            "line": 62,
+            "description": "Start the app",
+            "requires": [
+                "Backbone",
+                "router"
+            ],
+            "class": "",
+            "module": "factory"
+        },
+        {
+            "file": "src/js/minimal/app.js",
+            "line": 75,
+            "description": "Strict mode\nmore infos at :\nhttp://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/",
+            "itemtype": "property",
+            "name": "strict mode",
+            "type": "{String}",
+            "default": "\"use strict\"",
+            "class": "",
+            "module": "factory"
+        },
+        {
+            "file": "src/js/minimal/app.js",
+            "line": 86,
+            "description": "Initialize a new app",
+            "itemtype": "property",
+            "name": "app",
+            "class": "",
+            "module": "factory"
+        },
+        {
+            "file": "src/js/minimal/app.js",
+            "line": 93,
+            "description": "Instanciate the router\nand set history abilities",
+            "access": "protected",
+            "tagname": "Router",
+            "class": "",
+            "module": "factory"
+        },
+        {
+            "file": "src/js/minimal/router.js",
+            "line": 14,
+            "description": "Strict mode\nmore infos at :\nhttp://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/",
+            "itemtype": "property",
+            "name": "strict mode",
+            "type": "{String}",
+            "default": "\"use strict\"",
+            "class": "",
+            "module": "Router"
+        },
+        {
+            "file": "src/js/minimal/router.js",
+            "line": 31,
+            "description": "Main application page",
+            "itemtype": "method",
+            "name": "home",
+            "class": "",
+            "module": "Router"
+        },
+        {
+            "file": "src/js/minimal/router.js",
+            "line": 43,
+            "description": "About page",
+            "itemtype": "method",
+            "name": "about",
+            "class": "",
+            "module": "Router"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/js/minimal/factory/FactoryCollection.js:96"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/js/minimal/factory/FactoryCollectionView.js:122"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/js/minimal/factory/FactoryCollectionView.js:143"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/js/minimal/factory/FactoryCollectionView.js:164"
+        },
+        {
+            "message": "Missing item type\nIf baguette per second is greater than 0\n  and there's factories to sell\nthen update the baguette amount\nelse stop the application",
+            "line": " src/js/minimal/app/AppView.js:93"
+        },
+        {
+            "message": "Missing item type\nSince we do not use jquery\nUse this trick",
+            "line": " src/js/minimal/app.js:38"
+        },
+        {
+            "message": "Missing item type\nSince we do not use underscore\nUse this trick",
+            "line": " src/js/minimal/app.js:50"
+        },
+        {
+            "message": "Missing item type\nStart the app",
+            "line": " src/js/minimal/app.js:62"
+        },
+        {
+            "message": "Missing item type\nInstanciate the router\nand set history abilities",
+            "line": " src/js/minimal/app.js:93"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+  "predef" : [
+    "document",
+    "require",
+    "define",
+    "requestAnimationFrame",
+    "cancelAnimationFrame"
+  ],
+  "browser": true,
+  "devel": true,
+  "node": false,
+  "rhino": false,
+  "widget": false,
+  "windows": false,
+  "indent": 2,
+  "maxerr": 10,
+  "passfail": true,
+  "bitwise" : true
+}
