@@ -4,6 +4,8 @@
   "description": "Iddle Game",
   "main": "index.html",
   "scripts": {
+    "preinstall": "bower install --save-dev exoskeleton microtemplates requirejs --allow-root",
+    "postinstall": "grunt && grunt test && grunt dev",
     "test": "mocha-phantomjs /test/testRunner.html"
   },
   "repository": {
