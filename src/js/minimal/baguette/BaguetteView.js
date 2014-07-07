@@ -5,29 +5,13 @@
  *  @submodule BaguetteView
  *  @requires Backbone, Microtemplates, BaguetteModel
  */
-define([
-  "backbone",
-  "microtemplates",
-  "baguette/BaguetteModel",
-  "factory/FactoryCollection",
-  "factory/FactoryCollectionView"
-], function (
-  Backbone,
-  Microtemplate,
-  BaguetteModel,
-  FactoryCollection,
-  FactoryCollectionView
-) {
-  /**
-   *  Strict mode
-   *  more infos at :
-   *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
-   *
-   *  @property strict mode
-   *  @type {String}
-   *  @default "use strict"
-   */
-  "use strict";
+
+var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
+  Microtemplate = require("../../../../bower_components/microtemplates/index"),
+  AppModel = require("../app/AppModel"),
+  BaguetteModel = require("../baguette/BaguetteModel"),
+  FactoryCollection = require("../factory/FactoryCollection"),
+  FactoryCollectionView = require("../factory/FactoryCollectionView"),
 
   /**
    *  Manage Baguette
@@ -36,7 +20,7 @@ define([
    *  @extends Backbone
    *  @constructor
    */
-  var BaguetteView = Backbone.View.extend({
+  BaguetteView = Backbone.View.extend({
 
     /**
      *  Link to the model
@@ -88,6 +72,17 @@ define([
      *  @method initialize
      */
     initialize: function () {
+      /**
+       *  Strict mode
+       *  more infos at :
+       *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
+       *
+       *  @property strict mode
+       *  @type {String}
+       *  @default "use strict"
+       */
+      "use strict";
+
       this.listenTo(this.model, "change", this.render);
       this.listenTo(this.model, "destroy", this.remove);
       /**
@@ -115,6 +110,7 @@ define([
      *  @return Object Baguette view properties
      */
     render: function () {
+      "use strict";
       this.el.innerHTML = this.template(this.model.toJSON());
       return this;
     },
@@ -125,6 +121,7 @@ define([
      *  @method add
      */
     add: function () {
+      "use strict";
       this.model.set("count", this.model.get("count") + this.model.get("bps"));
     },
 
@@ -134,6 +131,7 @@ define([
      *  @method setBps
      */
     setBps: function () {
+      "use strict";
       this.model.set("bps", this.factories.getBps());
     },
 
@@ -144,6 +142,7 @@ define([
      *  @returns {Integer} amount of factories on the last sell
      */
     getLastSell: function () {
+      "use strict";
       return this.factories.collection.getLastSell();
     },
 
@@ -153,6 +152,7 @@ define([
      *  @method remove
      */
     remove: function () {
+      "use strict";
       this.model.destroy();
       this.factories.collection.destroy();
     },
@@ -164,6 +164,7 @@ define([
      *  @method reset
      */
     reset: function () {
+      "use strict";
       this.undelegateEvents();
       this.model.set("amount", 0);
       this.model.set("bps", 0);
@@ -171,5 +172,4 @@ define([
     }
   });
 
-  return BaguetteView;
-});
+module.exports = BaguetteView;

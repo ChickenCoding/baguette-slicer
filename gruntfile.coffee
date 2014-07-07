@@ -58,10 +58,15 @@ module.exports = (grunt) ->
     browserify:
       minimal:
         files:
-          "dist/js/refactor/app.js": ["src/js/refactor/app.js"]
+          "dist/js/minimal/app.js": ["src/js/minimal/app.js"]
         options:
           exclude: ["jquery", "underscore"]
-
+      test:
+        files:
+          "test/specs/minimal/bundle.js": ["test/specs/minimal/main.js"]
+        options:
+          exclude: ["jquery", "underscore"]
+          debug: true
 
     ###*
     # Minify Javascript
@@ -75,7 +80,7 @@ module.exports = (grunt) ->
           preserveComments : false
           report: "gzip"
         files :
-          "dist/js/refactor/app.min.js": ["dist/js/refactor/app.js"]
+          "dist/js/minimal/app.min.js": ["dist/js/minimal/app.js"]
 
     ###*
     # API generation
@@ -169,4 +174,13 @@ module.exports = (grunt) ->
     "yuidoc:all"
   ]
 
+  ###*
+  # Task for test
+  #
+  # @registeredTask test
+  ###
+  grunt.registerTask "test", [
+    "browserify:test"
+  ]
+  
 

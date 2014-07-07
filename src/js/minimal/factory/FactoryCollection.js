@@ -5,20 +5,8 @@
  *  @submodule FactoryCollection
  *  @requires Backbone, FactoryModel
  */
-define([
-  "backbone",
-  "factory/FactoryModel"
-], function (Backbone, FactoryModel) {
-  /**
-   *  Strict mode
-   *  more infos at :
-   *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
-   *
-   *  @property strict mode
-   *  @type {String}
-   *  @default "use strict"
-   */
-  "use strict";
+var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
+  FactoryModel = require("../factory/FactoryModel"),
 
   /**
    *  List of Factory
@@ -27,7 +15,7 @@ define([
    *  @extends Backbone
    *  @constructor
    */
-  var FactoryCollection = Backbone.Collection.extend({
+  FactoryCollection = Backbone.Collection.extend({
     /**
      *  Link to the model
      *
@@ -45,6 +33,17 @@ define([
      *
      */
     initialize: function () {
+      /**
+       *  Strict mode
+       *  more infos at :
+       *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
+       *
+       *  @property strict mode
+       *  @type {String}
+       *  @default "use strict"
+       */
+      "use strict";
+
       /**
        *  Get the baguette per second for all factories
        *
@@ -75,6 +74,7 @@ define([
      *
      */
     addBps: function (model) {
+      "use strict";
       if (model.get("lastSell") !== 0) {
         this.lastSell = -(model.get("lastSell"));
       }
@@ -90,6 +90,7 @@ define([
      *
      */
     getBps: function () {
+      "use strict";
       return this.bps;
     },
 
@@ -100,14 +101,13 @@ define([
      *  @returns {Integer} total
      */
     getFactoriesOwned: function () {
+      "use strict";
       var total = 0;
       this.models.forEach(function (model) {
         total += model.get("owned");
       });
       return total;
     }
-
   });
 
-  return FactoryCollection;
-});
+module.exports = FactoryCollection;

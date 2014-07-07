@@ -2,55 +2,53 @@
  *  Set up the routes
  *
  *  @module Router
- *  @requires Backbone, app/AppView
+ *  @requires Backbone, app/AppView, app/AboutView
  *
  */
-define([
-  "backbone",
-  "app/AppView",
-  "app/AboutView"
-], function (Backbone, AppView, AboutView) {
+var AppView = require("./app/AppView"),
+  Backbone = require("../../../bower_components/exoskeleton/exoskeleton"),
+  AboutView = require("./app/AboutView");
+
+var router = Backbone.Router.extend({
+
+  routes: {
+    "": "home",
+    "*about": "about"
+  },
 
   /**
-   *  Strict mode
-   *  more infos at :
-   *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
+   *  Main application page
    *
-   *  @property strict mode
-   *  @type {String}
-   *  @default "use strict"
+   *  @method home
+   *
    */
-  "use strict";
-
-  var router = Backbone.Router.extend({
-    routes: {
-      "": "home",
-      "*about": "about"
-    },
-
+  home: function () {
     /**
-     *  Main application page
+     *  Strict mode
+     *  more infos at :
+     *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
      *
-     *  @method home
-     *
+     *  @property strict mode
+     *  @type {String}
+     *  @default "use strict"
      */
-    home: function () {
-      console.log("home");
-      var appView = new AppView();
-      return appView;
-    },
+    "use strict";
+    console.log("home");
+    var appView = new AppView();
+    return appView;
+  },
 
-    /**
-     *  About page
-     *
-     *  @method about
-     *
-     */
-    about: function () {
-      var aboutView = new AboutView();
-      return aboutView;
-    }
-
-  });
-  return router;
+  /**
+   *  About page
+   *
+   *  @method about
+   *
+   */
+  about: function () {
+    "use strict";
+    var aboutView = new AboutView();
+    return aboutView;
+  }
 });
+
+module.exports = router;

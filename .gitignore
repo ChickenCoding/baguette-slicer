@@ -3,4 +3,5 @@ bower_components/
 API/
 npm-debug.log
 dist/
-
+src/js/old/
+test/specs/old/

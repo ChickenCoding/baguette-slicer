@@ -6,23 +6,8 @@
  *  @submodule AboutView
  *  @requires Backbone, Microtemplate
  */
-define([
-  "backbone",
-  "microtemplates"
-], function (
-  Backbone,
-  Microtemplate
-) {
-  /**
-   *  Strict mode
-   *  more infos at :
-   *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
-   *
-   *  @property strict mode
-   *  @type {String}
-   *  @default "use strict"
-   */
-  "use strict";
+var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
+  Microtemplate = require("../../../../bower_components/microtemplates/index"),
 
   /**
    *  About view
@@ -30,7 +15,7 @@ define([
    * @class AboutView
    * @constructor
    */
-  var AboutView = Backbone.View.extend({
+  AboutView = Backbone.View.extend({
 
     /**
      *  Set the view template
@@ -57,6 +42,7 @@ define([
      *  @method initialize
      */
     initialize: function () {
+      "use strict";
       this.render();
     },
 
@@ -67,9 +53,10 @@ define([
      *
      */
     render: function () {
+      "use strict";
       this.el = this.template({name: "baguette slicer", version: "0.0.0"});
       return this;
     }
   });
-  return AboutView;
-});
+
+module.exports = AboutView;

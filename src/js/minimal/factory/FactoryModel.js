@@ -1,52 +1,114 @@
 /**
- *  Factory model
+ *  Factory collection
  *
  *  @module factory
- *  @submodule Factorymodel
- *  @requires Backbone
- *
+ *  @submodule FactoryCollection
+ *  @requires Backbone, FactoryModel
  */
-define([
-  "backbone"
-], function (Backbone) {
-  /**
-   *  Strict mode
-   *  more infos at :
-   *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
-   *
-   *  @property strict mode
-   *  @type {String}
-   *  @default "use strict"
-   */
-  "use strict";
+var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
+  FactoryModel = require("../factory/FactoryModel"),
 
   /**
-   *  Set Factory properties
+   *  List of Factory
    *
-   *  @class FactoryModel
+   *  @class FactoryCollection
    *  @extends Backbone
-   *  @property {String} name name of factory
-   *  @property {Integer} cost cost of one factory
-   *  @property {Integer} sellRation value of factory when sold
-   *  @property {Integer} owned number of factories a player have
-   *  @property {Integer} rentability how many bps a factory do
-   *
+   *  @constructor
    */
-  var FactoryModel = Backbone.Model.extend({
-    defaults: {
-      id: 0,
-      name: "",
-      cost: 1,
-      sellRatio: 0.25,
-      owned: 0,
-      rentability: 0,
-      lastSell: 0
+  FactoryCollection = Backbone.Collection.extend({
+    /**
+     *  Link to the model
+     *
+     *  @attribute model
+     *  @extends Backbone.Model
+     *  @type Object
+     *  @default BaguetteModel
+     */
+    model: FactoryModel,
+
+    /**
+     *  Initialize the collection
+     *
+     *  @method initialize
+     *
+     */
+    initialize: function () {
+      /**
+       *  Strict mode
+       *  more infos at :
+       *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
+       *
+       *  @property strict mode
+       *  @type {String}
+       *  @default "use strict"
+       */
+      "use strict";
+
+      /**
+       *  Get the baguette per second for all factories
+       *
+       *  @property bps
+       *  @type {Integer}
+       *  @default 0
+       */
+      this.bps = 0;
+
+      /**
+       *  Get a trace of the amount of a factory
+       *  sold on the last time
+       *
+       * @property lastSell
+       * @type {Integer}
+       * @default 0
+       *
+       */
+      this.lastSell = 0;
     },
 
-    initialize: function () {
-      this.set("lastSell", this.get("owned"));
+    /**
+     *  Add bps from event
+     *  Also get a trace of the last sell
+     *
+     *  @method addBps
+     *  @param {Object} model factoryModel
+     *
+     */
+    addBps: function (model) {
+      "use strict";
+      if (model.get("lastSell") !== 0) {
+        this.lastSell = -(model.get("lastSell"));
+      }
+      this.bps += model.get("lastSell") * model.get("rentability");
+      this.bps = this.bps <= 0 ? 0 : parseInt(this.bps, 10);
+      model.set("lastSell", 0);
+    },
+
+    /**
+     *  Baguette per second getter
+     *
+     *  @method getBps
+     *
+     */
+    getBps: function () {
+      "use strict";
+      return this.bps;
+    },
+
+    /**
+     *  Get amount of factories currently owned
+     *
+     *  @method getFactoriesOwned
+     *  @returns {Integer} total
+     */
+    getFactoriesOwned: function () {
+      "use strict";
+      var total = 0;
+      this.models.forEach(function (model) {
+        total += model.get("owned");
+      });
+      return total;
     }
+
   });
 
-  return FactoryModel;
-});
+module.exports = FactoryCollection;

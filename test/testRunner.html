@@ -1,15 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Specs</title>
-    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" type="text/css" media="all" />
-  </head>
-  <body>
-    <div id="mocha"></div>
-    <script src="../node_modules/requirejs/require.js"
-      data-main="./specs/main.js"
-      type="text/javascript"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Specs</title>
+<link rel="stylesheet" href="../node_modules/mocha/mocha.css" type="text/css" media="all" />
+</head>
+<body>
+<!--<script src="../node_modules/requirejs/require.js"-->
+<!--data-main="./specs/minimal/main.js"-->
+      <!--type="text/javascript"></script>-->
+
+<div id="mocha"></div>
+<script src="../node_modules/mocha/mocha.js" type="text/javascript" charset="utf-8"></script>
+<script src="../node_modules/chai/chai.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="UTF-8">
+  /*
+   * PhantomJs got an issue with Function#bind
+   * Let's fix this
+   *
+   */
+  if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+      if (typeof this !== "function") {
+        throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+      }
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+        fToBind = this,
+        fNOP = function () {return;},
+        fBound = function () {
+          return fToBind.apply(this instanceof fNOP && oThis?
+              this:
+              oThis, aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
+      fNOP.prototype = this.prototype;
+      fBound.prototype = new fNOP();
+      return fBound;
+    };
+  }
+
+  /*
+   *  Mocha/Chai config
+   *
+   */
+  mocha.setup("bdd");
+  window.should = void 0;
+  window.should = chai.should();
+</script>
+
+<script src="specs/minimal/bundle.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" charset="UTF-8">
+  /*
+   *  Run
+   *
+   */
+  if (window.mochaPhantomJS) {
+    mochaPhantomJS.run();
+  } else {
+     mocha.run();
+  }
+</script>
+
+
+</body>
 </html>

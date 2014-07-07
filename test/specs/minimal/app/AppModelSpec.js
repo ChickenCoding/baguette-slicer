@@ -1,13 +1,8 @@
-define([
-  "../../../src/js/minimal/app/AppModel",
-  "backbone",
-  "chai"
-], function (
-  AppModel,
-  Backbone,
-  Chai
-) {
+(function () {
+
   "use strict";
+
+  var AppModel = require("../../../../src/js/minimal/app/AppModel");
 
   describe("app model spec", function () {
 
@@ -23,5 +18,4 @@ define([
       this.appModel.get("currentSellable").should.equal(10);
     });
   });
-
-});
+}(this));

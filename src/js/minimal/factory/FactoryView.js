@@ -1,24 +1,6 @@
-define([
-  "backbone",
-  "microtemplates",
-  "factory/FactoryModel"
-], function (
-  Backbone,
-  Microtemplate,
-  FactoryModel
-) {
-
-  /**
-   *  Strict mode
-   *  more infos at :
-   *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
-   *
-   *  @property strict mode
-   *  @type {String}
-   *  @default "use strict"
-   */
-  "use strict";
-
+var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
+  Microtemplate = require("../../../../bower_components/microtemplates/index"),
+  FactoryModel = require("../factory/FactoryModel"),
   /**
    *  Factory view
    *
@@ -26,7 +8,7 @@ define([
    *  @extends Backbone
    *  @constructor
    */
-  var FactoryView = Backbone.View.extend({
+  FactoryView = Backbone.View.extend({
     /**
      *  Link to the model
      *
@@ -84,6 +66,16 @@ define([
      *  @method initialize
      */
     initialize: function () {
+      /**
+       *  Strict mode
+       *  more infos at :
+       *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
+       *
+       *  @property strict mode
+       *  @type {String}
+       *  @default "use strict"
+       */
+      "use strict";
       this.listenTo(this.model, "change", this.render, this);
 
     },
@@ -95,6 +87,7 @@ define([
      *  @return Object view
      */
     render: function () {
+      "use strict";
       var data = this.model.toJSON();
       this.el.innerHTML = this.template(data);
       return this;
@@ -107,6 +100,7 @@ define([
      *  @param Object event
      */
     buy: function (event) {
+      "use strict";
       event.preventDefault();
       var amount = parseInt(event.target.value, 10),
         owned = this.model.get("owned");
@@ -121,6 +115,7 @@ define([
      *  @param Object event
      */
     sell: function (event) {
+      "use strict";
       event.preventDefault();
       var owned = this.model.get("owned"),
         amount,
@@ -137,5 +132,5 @@ define([
       this.model.set("owned", amount);
     }
   });
-  return FactoryView;
-});
+
+module.exports = FactoryView;

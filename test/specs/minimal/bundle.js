@@ -1961,221 +1961,6 @@ _.extend(History.prototype, Events, {
 });
 
 },{}],2:[function(require,module,exports){
-// Simple JavaScript Templating
-// Paul Miller (http://paulmillr.com)
-// http://underscorejs.org
-// (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-(function(globals) {
-  // By default, Underscore uses ERB-style template delimiters, change the
-  // following template settings to use alternative delimiters.
-  var settings = {
-    evaluate    : /<%([\s\S]+?)%>/g,
-    interpolate : /<%=([\s\S]+?)%>/g,
-    escape      : /<%-([\s\S]+?)%>/g
-  };
-
-  // When customizing `templateSettings`, if you don't want to define an
-  // interpolation, evaluation or escaping regex, we need one that is
-  // guaranteed not to match.
-  var noMatch = /(.)^/;
-
-  // Certain characters need to be escaped so that they can be put into a
-  // string literal.
-  var escapes = {
-    "'":      "'",
-    '\\':     '\\',
-    '\r':     'r',
-    '\n':     'n',
-    '\t':     't',
-    '\u2028': 'u2028',
-    '\u2029': 'u2029'
-  };
-
-  var escaper = /\\|'|\r|\n|\t|\u2028|\u2029/g;
-
-  // List of HTML entities for escaping.
-  var htmlEntities = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#x27;'
-  };
-
-  var entityRe = new RegExp('[&<>"\']', 'g');
-
-  var escapeExpr = function(string) {
-    if (string == null) return '';
-    return ('' + string).replace(entityRe, function(match) {
-      return htmlEntities[match];
-    });
-  };
-
-  var counter = 0;
-
-  // JavaScript micro-templating, similar to John Resig's implementation.
-  // Underscore templating handles arbitrary delimiters, preserves whitespace,
-  // and correctly escapes quotes within interpolated code.
-  var tmpl = function(text, data) {
-    var render;
-
-    // Combine delimiters into one regular expression via alternation.
-    var matcher = new RegExp([
-      (settings.escape || noMatch).source,
-      (settings.interpolate || noMatch).source,
-      (settings.evaluate || noMatch).source
-    ].join('|') + '|$', 'g');
-
-    // Compile the template source, escaping string literals appropriately.
-    var index = 0;
-    var source = "__p+='";
-    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
-      source += text.slice(index, offset)
-        .replace(escaper, function(match) { return '\\' + escapes[match]; });
-
-      if (escape) {
-        source += "'+\n((__t=(" + escape + "))==null?'':escapeExpr(__t))+\n'";
-      }
-      if (interpolate) {
-        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
-      }
-      if (evaluate) {
-        source += "';\n" + evaluate + "\n__p+='";
-      }
-      index = offset + match.length;
-      return match;
-    });
-    source += "';\n";
-
-    // If a variable is not specified, place data values in local scope.
-    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
-
-    source = "var __t,__p='',__j=Array.prototype.join," +
-      "print=function(){__p+=__j.call(arguments,'');};\n" +
-      source + "return __p;\n//# sourceURL=/microtemplates/source[" + counter++ + "]";
-
-    try {
-      render = new Function(settings.variable || 'obj', 'escapeExpr', source);
-    } catch (e) {
-      e.source = source;
-      throw e;
-    }
-
-    if (data) return render(data, escapeExpr);
-    var template = function(data) {
-      return render.call(this, data, escapeExpr);
-    };
-
-    // Provide the compiled function source as a convenience for precompilation.
-    template.source = 'function(' + (settings.variable || 'obj') + '){\n' + source + '}';
-
-    return template;
-  };
-  tmpl.settings = settings;
-
-  if (typeof define !== 'undefined' && define.amd) {
-    define([], function () {
-      return tmpl;
-    }); // RequireJS
-  } else if (typeof module !== 'undefined' && module.exports) {
-    module.exports = tmpl; // CommonJS
-  } else {
-    globals.microtemplate = tmpl; // <script>
-  }
-})(this);
-
-},{}],3:[function(require,module,exports){
-(function () {
-  "use strict";
-
-  var Backbone = require("../../../bower_components/exoskeleton/exoskeleton"),
-    Router = require("./router"),
-    app = {};
-
-  /**
-   *  Instanciate the router
-   *  and set history abilities
-   *
-   *  @protected Router
-   */
-  app.router = new Router();
-  Backbone.history.start();
-
-  /*
-   *  Set the app to be globally
-   *  accessible
-   *
-   *  @property window.app
-   */
-  window.app = app;
-  return app;
-}(this));
-
-},{"../../../bower_components/exoskeleton/exoskeleton":1,"./router":9}],4:[function(require,module,exports){
-/**
- *  About Controller
- *  Simple view to show description
- *
- *  @module app
- *  @submodule AboutView
- *  @requires Backbone, Microtemplate
- */
-var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
-  Microtemplate = require("../../../../bower_components/microtemplates/index");
-
-/**
- *  About view
- *
- * @class AboutView
- * @constructor
- */
-var AboutView = Backbone.View.extend({
-
-  /**
-   *  Set the view template
-   *
-   *  @attribute template
-   *  @extends Microtemplates
-   *  @type Object
-   *  @default DOM selector
-   */
-  template: new Microtemplate(document.querySelector("#about-view").innerHTML),
-
-  /**
-   *  Bind template to element
-   *
-   *  @attribute el
-   *  @type String
-   *  @default #baguette
-   */
-  el: "#baguette",
-
-  /**
-   *  Initialize
-   *
-   *  @method initialize
-   */
-  initialize: function () {
-    "use strict";
-    this.render();
-  },
-
-  /**
-   *  Render the view
-   *
-   *  @method render
-   *
-   */
-  render: function () {
-    "use strict";
-    this.el = this.template({name: "baguette slicer", version: "0.0.0"});
-    return this;
-  }
-});
-
-module.exports = AboutView;
-
-},{"../../../../bower_components/exoskeleton/exoskeleton":1,"../../../../bower_components/microtemplates/index":2}],5:[function(require,module,exports){
 /**
  *  Set App properties
  *
@@ -2194,180 +1979,88 @@ var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
 
 module.exports = AppModel;
 
-},{"../../../../bower_components/exoskeleton/exoskeleton":1}],6:[function(require,module,exports){
+},{"../../../../bower_components/exoskeleton/exoskeleton":1}],3:[function(require,module,exports){
 /**
- *  A view which works like a
- *  dispatcher
+ *  Baguette single item model
  *
- *  @module app
- *  @submodule AppView
- *  @requires Backbone, Baguette, Factory
+ *  @module baguette
+ *  @submodule BaguetteModel
+ *  @requires Backbone
  *
  */
 var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
-  AppModel = require("../app/AppModel"),
-  BaguetteView = require("../baguette/BaguetteView"),
-  BaguetteModel = require("../baguette/BaguetteModel");
 /**
- *  Dispatch the app
+ *  Set Baguette properties
  *
- *  @class AppView
- *  @constructor
+ *  @class BaguetteModel
+ *  @extends Backbone
+ *  @property {Integer} id identifier default=0
+ *  @property {Integer} count current baguette counter default=0
  */
-var AppView = Backbone.View.extend({
-
-  /**
-   *  Constructor
-   *
-   *  @method initialize
-   */
-  initialize: function () {
-    "use strict";
-    this.model = new AppModel({currentSellable: 0, currentBaguette: 0});
-    this.loop = null;
-    this.baguette = new BaguetteView({model: new BaguetteModel()});
-    this.baguette.render();
-    this.model.set("currentBaguette", this.baguette.model.get("amount") + this.baguette.model.get("bps"));
-    this.render();
-  },
-  /**
-   *  Intialize the application loop
-   *
-   *  @method render
-   */
-  render: function () {
-
-    "use strict";
-
-    /**
-     * Scope trick
-     *
-     * @property self
-     *
-     */
-    var self = this;
-
-    /**
-     *  Application loop
-     *
-     *  @method loop
-     */
-    function loop() {
-      /**
-       *  Get all the factories bps
-       *  Add the buy/sell observers
-       *
-       *  @property current
-       *  @type {String}
-       *  @default 0
-       */
-      var current = self.baguette.model.get("amount") + self.baguette.model.get("bps") +
-        (self.baguette.factories.trade() * 100);
-
-      /**
-       *  Once the buy/sell trades have been added
-       *  reset to prevent re-adding it
-       *
-       *  @property resetTrade
-       */
-      self.baguette.factories.resetTrade();
-
-      /**
-       *  If baguette per second is greater than 0
-       *    and there's factories to sell
-       *  then update the baguette amount
-       *  else stop the application
-       */
-      if (
-        self.model.get("currentSellable") >= 0 ||
-          self.baguette.model.get("amount") >= 0
-      ) {
-        self.baguette.model.set("amount", current);
-        self.model.set("currentSellable", current);
-      } else {
-        self.baguette.factories.lockBps();
-        self.stop();
-      }
-      self.loop = requestAnimationFrame(loop);
+  BaguetteModel = Backbone.Model.extend({
+    defaults: {
+      id: 0,
+      amount: 0,
+      bps: 0
     }
+  });
 
-    self.loop = requestAnimationFrame(loop);
-  },
+module.exports = BaguetteModel;
 
-  /**
-   *  Stop the loop and the application
-   *
-   *  @method stop
-   *
-   */
-  stop: function () {
-    "use strict";
+},{"../../../../bower_components/exoskeleton/exoskeleton":1}],4:[function(require,module,exports){
+(function () {
 
-    cancelAnimationFrame(this.loop);
-  }
+  "use strict";
 
-});
+  var AppModel = require("../../../../src/js/minimal/app/AppModel");
 
-module.exports = AppView;
+  describe("app model spec", function () {
 
-},{"../../../../bower_components/exoskeleton/exoskeleton":1,"../app/AppModel":5,"../baguette/BaguetteModel":7,"../baguette/BaguetteView":8}],7:[function(require,module,exports){
+    it("should initialize with parameters by default", function () {
+      this.appModel = new AppModel();
+      this.appModel.get("currentBaguette").should.equal(0);
+      this.appModel.get("currentSellable").should.equal(0);
+    });
 
-},{}],8:[function(require,module,exports){
-module.exports=require(7)
-},{}],9:[function(require,module,exports){
-/**
- *  Set up the routes
- *
- *  @module Router
- *  @requires Backbone, app/AppView, app/AboutView
- *
- */
-var AppView = require("./app/AppView"),
-  Backbone = require("../../../bower_components/exoskeleton/exoskeleton"),
-  AboutView = require("./app/AboutView");
+    it("should initialize with given parameters", function () {
+      this.appModel = new AppModel({currentBaguette: 5, currentSellable: 10});
+      this.appModel.get("currentBaguette").should.equal(5);
+      this.appModel.get("currentSellable").should.equal(10);
+    });
+  });
+}(this));
 
-var router = Backbone.Router.extend({
+},{"../../../../src/js/minimal/app/AppModel":2}],5:[function(require,module,exports){
+(function () {
+  "use strict";
 
-  routes: {
-    "": "home",
-    "*about": "about"
-  },
+  var BaguetteModel = require("../../../../src/js/minimal/baguette/BaguetteModel");
 
-  /**
-   *  Main application page
-   *
-   *  @method home
-   *
-   */
-  home: function () {
-    /**
-     *  Strict mode
-     *  more infos at :
-     *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
-     *
-     *  @property strict mode
-     *  @type {String}
-     *  @default "use strict"
-     */
-    "use strict";
-    console.log("home");
-    var appView = new AppView();
-    return appView;
-  },
+  describe("baguette model spec", function () {
 
-  /**
-   *  About page
-   *
-   *  @method about
-   *
-   */
-  about: function () {
-    "use strict";
-    var aboutView = new AboutView();
-    return aboutView;
-  }
-});
+    it("should initialize with parameters by default", function () {
+      this.baguetteModel = new BaguetteModel();
+      this.baguetteModel.get("id").should.equal(0);
+      this.baguetteModel.get("amount").should.equal(0);
+      this.baguetteModel.get("bps").should.equal(0);
+    });
 
-module.exports = router;
+    it("should initialize with given parameters", function () {
+      this.baguetteModel = new BaguetteModel({id: 1, amount: 200, bps: 60});
+      this.baguetteModel.get("id").should.equal(1);
+      this.baguetteModel.get("amount").should.equal(200);
+      this.baguetteModel.get("bps").should.equal(60);
+    });
 
-},{"../../../bower_components/exoskeleton/exoskeleton":1,"./app/AboutView":4,"./app/AppView":6}]},{},[3]);
+  });
+}(this));
+
+},{"../../../../src/js/minimal/baguette/BaguetteModel":3}],6:[function(require,module,exports){
+(function () {
+  var AppModelSpec = require("./app/AppModelSpec"),
+    BaguetteModelSpec = require("./baguette/BaguetteModelSpec"),
+    Backbone = require("../../../bower_components/exoskeleton/exoskeleton");
+
+}(this));
+
+},{"../../../bower_components/exoskeleton/exoskeleton":1,"./app/AppModelSpec":4,"./baguette/BaguetteModelSpec":5}]},{},[6]);

@@ -7,35 +7,17 @@
  *  @requires Backbone, Baguette, Factory
  *
  */
-define([
-  "backbone",
-  "app/AppModel",
-  "baguette/BaguetteView",
-  "baguette/BaguetteModel"
-], function (
-  Backbone,
-  AppModel,
-  BaguetteView,
-  BaguetteModel
-) {
-  /**
-   *  Strict mode
-   *  more infos at :
-   *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
-   *
-   *  @property strict mode
-   *  @type {String}
-   *  @default "use strict"
-   */
-  "use strict";
-
+var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
+  AppModel = require("../app/AppModel"),
+  BaguetteView = require("../baguette/BaguetteView"),
+  BaguetteModel = require("../baguette/BaguetteModel"),
   /**
    *  Dispatch the app
    *
    *  @class AppView
    *  @constructor
    */
-  var AppView = Backbone.View.extend({
+  AppView = Backbone.View.extend({
 
     /**
      *  Constructor
@@ -43,6 +25,7 @@ define([
      *  @method initialize
      */
     initialize: function () {
+      "use strict";
       this.model = new AppModel({currentSellable: 0, currentBaguette: 0});
       this.loop = null;
       this.baguette = new BaguetteView({model: new BaguetteModel()});
@@ -56,6 +39,8 @@ define([
      *  @method render
      */
     render: function () {
+
+      "use strict";
 
       /**
        * Scope trick
@@ -103,7 +88,6 @@ define([
           self.baguette.model.set("amount", current);
           self.model.set("currentSellable", current);
         } else {
-          console.log("not possibro");
           self.baguette.factories.lockBps();
           self.stop();
         }
@@ -120,9 +104,11 @@ define([
      *
      */
     stop: function () {
+      "use strict";
+
       cancelAnimationFrame(this.loop);
     }
 
   });
-  return AppView;
-});
+
+module.exports = AppView;

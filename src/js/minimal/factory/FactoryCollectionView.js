@@ -5,27 +5,10 @@
  *  @submodule FactoryCollectionView
  *  @requires Backbone, FactoryCollection
  */
-define([
-  "backbone",
-  "microtemplates",
-  "factory/FactoryCollection",
-  "factory/FactoryView"
-], function (
-  Backbone,
-  Microtemplate,
-  FactoryCollection,
-  FactoryView
-) {
-  /**
-   *  Strict mode
-   *  more infos at :
-   *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
-   *
-   *  @property strict mode
-   *  @type {String}
-   *  @default "use strict"
-   */
-  "use strict";
+var Backbone = require("../../../../bower_components/exoskeleton/exoskeleton"),
+  Microtemplate = require("../../../../bower_components/microtemplates/index"),
+  FactoryCollection = require("../factory/FactoryCollection"),
+  FactoryView = require("../factory/FactoryView"),
 
   /**
    *  Manage factory list
@@ -34,7 +17,7 @@ define([
    *  @extends Backbone
    *  @constructor
    */
-  var FactoryCollectionView = Backbone.View.extend({
+  FactoryCollectionView = Backbone.View.extend({
     /**
      *  Set the collection
      *
@@ -71,6 +54,16 @@ define([
      * @method initialize
      */
     initialize: function () {
+      /**
+       *  Strict mode
+       *  more infos at :
+       *  http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/
+       *
+       *  @property strict mode
+       *  @type {String}
+       *  @default "use strict"
+       */
+      "use strict";
       this.listenTo(this.collection, "add", this.addOne);
       this.listenTo(this.collection, "change", this.setBps);
       this.footer = document.querySelector("#footer");
@@ -90,6 +83,7 @@ define([
      *  @method render
      */
     render: function () {
+      "use strict";
       this.collection.forEach(this.addOne, this);
     },
 
@@ -100,6 +94,7 @@ define([
      *  @param {Object} factory model
      */
     addOne: function (factory) {
+      "use strict";
       var factoryView = new FactoryView({model: factory});
       this.el.appendChild(factoryView.render().el);
       this.collection.addBps(factory);
@@ -112,6 +107,7 @@ define([
      * @method setBps
      */
     setBps: function () {
+      "use strict";
       if (this.isLocked !== null) {
         this.footer.innerHTML = this.template({total: this.getBps()});
       } else {
@@ -126,6 +122,7 @@ define([
      *  @returns {Integer} bps
      */
     getBps: function () {
+      "use strict";
       return this.collection.getBps();
     },
 
@@ -136,6 +133,7 @@ define([
      *
      */
     lockBps: function () {
+      "use strict";
       this.isLocked = true;
     },
 
@@ -148,6 +146,7 @@ define([
      *
      */
     trade: function () {
+      "use strict";
       return this.collection.lastSell;
     },
 
@@ -158,6 +157,7 @@ define([
      *
      */
     resetTrade: function () {
+      "use strict";
       this.collection.lastSell = 0;
     },
 
@@ -168,11 +168,9 @@ define([
      *  @returns {Integer} amount
      */
     getFactoriesOwned: function () {
+      "use strict";
       return this.collection.getFactoriesOwned();
     }
-
-
   });
 
-  return FactoryCollectionView;
-});
+module.exports = FactoryCollectionView;

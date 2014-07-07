@@ -1,13 +1,7 @@
-define([
-  "../../../src/js/minimal/baguette/BaguetteModel",
-  "backbone",
-  "chai"
-], function (
-  BaguetteModel,
-  Backbone,
-  Chai
-) {
+(function () {
   "use strict";
+
+  var BaguetteModel = require("../../../../src/js/minimal/baguette/BaguetteModel");
 
   describe("baguette model spec", function () {
 
@@ -26,4 +20,4 @@ define([
     });
 
   });
-});
+}(this));
